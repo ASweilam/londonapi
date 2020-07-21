@@ -18,7 +18,7 @@ Access Swagger:
     
 ## Test the API through Postman or Browser
 
-For users listed as living in London or those with current coordinates are within 50 miles of London (The requirement).
+For users listed as living in London or those with current coordinates are within 50 Miles of London **(The requirement)**.
  
       http://localhost:8080/api/london  
 
