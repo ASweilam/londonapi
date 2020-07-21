@@ -1,5 +1,7 @@
 # London API
 
+[![Build Status](https://dev.azure.com/anhsbio/London%20API/_apis/build/status/ASweilam.londonapi?branchName=master)](https://dev.azure.com/anhsbio/London%20API/_build/latest?definitionId=10&branchName=master)
+
 A Spring Boot REST API with three endpoints and Swagger. Get people who are:
 
     Endpoint 1:  People listed as living in London.
