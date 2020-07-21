@@ -8,13 +8,27 @@ A Spring Boot REST API with three endpoints and Swagger. Get people who are:
 
 In addition, this API consumes an external API as a data source.
 
-## Getting Started
+## Getting Started using Swagger
 
-- Clone and run the project.
+Clone and run the project.
 
-- Access Swagger:
+Access Swagger:
 
     localhost:8080/swagger-ui.html
+    
+## Test the API through Postman or Browser
+
+For users listed as living in London or those with current coordinates are within 50 miles of London (The requirement).
+ 
+      http://localhost:8080/api/london  
+
+For people listed as living in London only (Extra endpoint).
+
+       http://localhost:8080/api/listed
+       
+For people whose coordinates are within 50 Miles of London (Extra endpoint).
+
+        http://localhost:8080/api/50miles           
 
 ### Prerequisites
 
