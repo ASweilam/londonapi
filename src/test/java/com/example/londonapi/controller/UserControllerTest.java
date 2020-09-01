@@ -28,8 +28,11 @@ public class UserControllerTest {
 
     @InjectMocks
     private IUsersFromExternal usersFromExternal = new UsersFromExternal();
+    @InjectMocks
     private IUserService userService = new UserService(usersFromExternal);
+    @InjectMocks
     private UserController userController = new UserController(userService);
+
 
     @org.junit.Before
     public void setUp() throws Exception {
