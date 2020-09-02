@@ -41,6 +41,24 @@ public class UserServiceTest {
     }
 
     @Test
+    public void distFromWhenInvalidLongLat() {
+
+        //Arrange
+        double lat1 = 100;
+        double lng1= 190;
+        double lat2 = -100;
+        double lng2 = 190;
+
+        //ACT
+        double actual = UserService.distFrom(lat1,lng1,lat2,lng2);
+        System.out.println("This should be -1.0: " +actual);
+
+        //ASSERT
+        assertEquals(-1, actual, 0);
+
+    }
+
+    @Test
     public void distFromWhenZeros() {
 
         //Arrange
@@ -50,11 +68,11 @@ public class UserServiceTest {
         double lng2 = 0;
 
         //ACT
-        double result = UserService.distFrom(lat1,lng1,lat2,lng2);
-        System.out.println(result);
+        double actual = UserService.distFrom(lat1,lng1,lat2,lng2);
+        System.out.println("This should be 0.0: "+ actual);
         //ASSERT
 
-        assertEquals(0, result, 0);
+        assertEquals(0, actual, 0);
 
     }
 }
