@@ -27,6 +27,29 @@ public class UserServiceTest {
 
 
     @Test
+    public void distFromAccuracy() {
+        // Using this website to get the distance between two coordinates:
+        //https://gps-coordinates.org/distance-between-coordinates.php
+
+        //Arrange
+        double lat1 = 51.6553959;
+        double lng1= 0.0572553;
+        double lat2 = 51.6710832;
+        double lng2 = 0.8078532;
+
+        //ACT
+        double actual = UserService.distFrom(lat1,lng1,lat2,lng2);
+        double expected = 32.19;
+        System.out.println("This should be around 32.19: " +actual);
+
+        //ASSERT
+        //Keeping 0.1 allowance. Math.abs(expected - actual) < delta.
+        assertEquals(expected, actual, 0.01);
+
+    }
+
+
+    @Test
     public void filter50MilesEmptyList() {
         //arrange
         List<User> nullUserList = new ArrayList<>();
