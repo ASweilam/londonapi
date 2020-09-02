@@ -37,6 +37,7 @@ public class UsersFromExternal implements IUsersFromExternal {
         List<User> users = Arrays.asList(response.getBody());
 
         //We could add another data source, such as a database or another API just in case the external API is down
+        //We could keep a small database in sync with the external API to handle this situation
         //IF(API IS DOWN)
         //  ALTERNATIVE_DATASOURCE.GET_USERS;
 
