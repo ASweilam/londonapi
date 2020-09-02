@@ -53,7 +53,7 @@ public class UserService implements IUserService {
 
         for (User user : allUsers){
             double dist = distFrom(51.50722, -0.1275, user.getLatitude(), user.getLongitude());     //  London coordinates: 51.50722, -0.1275,
-            if (dist <= 50)
+            if (dist <= 50 && dist>=0)
                 users50London.add(user);
         }
         return users50London;
@@ -67,15 +67,19 @@ public class UserService implements IUserService {
      * @return Distance in Miles
      */
      static double distFrom(double lat1, double lng1, double lat2, double lng2) {
-        double earthRadius = 3958.8; //miles
-        double dLat = Math.toRadians(lat2-lat1);
-        double dLng = Math.toRadians(lng2-lng1);
-        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
-                        Math.sin(dLng/2) * Math.sin(dLng/2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        double dist = (earthRadius * c);                                        //In Miles
-
+         double dist = 0;
+         if(Math.abs(lat1) <= 90 && Math.abs(lat2) <= 90 && Math.abs(lng1) <= 180 && Math.abs(lng2) <= 180) {
+             double earthRadius = 3958.8; //miles
+             double dLat = Math.toRadians(lat2 - lat1);
+             double dLng = Math.toRadians(lng2 - lng1);
+             double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                     Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+                             Math.sin(dLng / 2) * Math.sin(dLng / 2);
+             double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+              dist = (earthRadius * c);                                        //In Miles
+         }  else {
+             dist = -1;
+         }
         return dist;
     }
 
